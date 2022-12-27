@@ -8,7 +8,7 @@
  * @format
  */
 
-import React, {type PropsWithChildren} from 'react';
+import React, { type PropsWithChildren, useState, useRef } from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -16,8 +16,10 @@ import {
   StyleSheet,
   Text,
   useColorScheme,
+  TouchableOpacity,
   View,
 } from 'react-native';
+import PhoneInput from "react-native-phone-number-input";
 
 import {
   Colors,
@@ -27,35 +29,62 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-const Section: React.FC<
-  PropsWithChildren<{
-    title: string;
-  }>
-> = ({children, title}) => {
-  const isDarkMode = useColorScheme() === 'dark';
+
+export const Splash: React.FC = () => {
+  const [value, setValue] = useState("");
+  const [formattedValue, setFormattedValue] = useState("");
+  const [valid, setValid] = useState(false);
+  const [showMessage, setShowMessage] = useState(false);
+  const phoneInput = useRef<PhoneInput>(null);
   return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
+    <>
+      <StatusBar barStyle="dark-content" />
+      <View style={styles.container}>
+        <SafeAreaView style={styles.wrapper}>
+          {/* {showMessage && (
+            <View style={styles.message}>
+              <Text>Value : {value}</Text>
+              <Text>Formatted Value : {formattedValue}</Text>
+              <Text>Valid : {valid ? "true" : "false"}</Text>
+            </View>
+          )} */}
+
+
+          <View style={styles.message}>
+            <Text>Bebsaa</Text>
+          </View>
+
+          <PhoneInput
+            ref={phoneInput}
+            defaultValue={value}
+            defaultCode="DM"
+            layout="first"
+            onChangeText={(text) => {
+              setValue(text);
+            }}
+            onChangeFormattedText={(text) => {
+              setFormattedValue(text);
+            }}
+            withDarkTheme
+            withShadow
+            autoFocus
+          />
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => {
+              const checkValid = phoneInput.current?.isValidNumber(value);
+              setShowMessage(true);
+              setValid(checkValid ? checkValid : false);
+            }}
+          >
+            <Text style={styles.loginBtn}>Let's Begin</Text>
+          </TouchableOpacity>
+        </SafeAreaView>
+      </View>
+    </>
   );
 };
+
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -73,25 +102,11 @@ const App = () => {
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
-        <Header />
         <View
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
+          <Splash />
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -99,6 +114,15 @@ const App = () => {
 };
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: Colors.lighter,
+  },
+  wrapper: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   sectionContainer: {
     marginTop: 32,
     paddingHorizontal: 24,
@@ -115,6 +139,34 @@ const styles = StyleSheet.create({
   highlight: {
     fontWeight: '700',
   },
+  message: {
+    borderWidth: 1,
+    borderRadius: 5,
+    padding: 20,
+    marginBottom: 20,
+    justifyContent: 'center',
+    alignItems: 'flex-start',
+  },
+  button: {
+    marginTop: 20,
+    height: 50,
+    width: 300,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#2ecc71',
+    borderRadius: 10,
+    shadowColor: 'rgba(0,0,0,0.4)',
+    shadowOffset: {
+      width: 1,
+      height: 5,
+    },
+    shadowOpacity: 0.34,
+    shadowRadius: 6.27,
+    elevation: 10,
+  },
+  loginBtn: {
+    color: "#ffffff"
+  }
 });
 
 export default App;
