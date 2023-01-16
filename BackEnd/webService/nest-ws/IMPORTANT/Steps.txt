@@ -1,0 +1,13 @@
+Backend set up. 
+
+1. Install Nest js.
+npm install -g @nestjs/cli
+
+2. create app
+nest new nest-ws
+
+3. go /nest-ws
+
+4. npm run start
+
+5. app starts at http://localhost:3000
