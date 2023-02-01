@@ -12,7 +12,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "   { \"FirstName\": \"Raj\",\r\n    \"SurName\": \"Maharana\",\r\n    \"Gender\": \"male\",\r\n    \"Email\": \"asdf\",\r\n    \"Age\": \"asdfasdfasdf\",\r\n    \"Address\": \"string\"}",
+					"raw": "{\r\n    \"FirstName\": \"Raj\",\r\n    \"SurName\": \"Maharana\",\r\n    \"Gender\": \"male\",\r\n    \"Email\": \"quickroutes@gmail.com\",\r\n    \"Password\": \"uneja\",\r\n    \"Age\": \"28\",\r\n    \"Address\": \"string\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -93,6 +93,35 @@
 					"path": [
 						"user",
 						"63c5302206eadef01eafb160"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Email\": \"quickroutes@gmail.com\",\r\n    \"Password\": \"uneja\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"auth",
+						"login"
 					]
 				}
 			},
