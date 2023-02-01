@@ -5,7 +5,8 @@ import {
     Body,
     Param,
     Delete,
-    Put
+    Put,
+    UseGuards
   } from '@nestjs/common';
   import {
     UserService
@@ -16,7 +17,11 @@ import {
   import {
     UpdateUserDto
   } from '../dto/update-user.dto';
-  
+  import {
+    AuthGuard
+  } from '@nestjs/passport';
+
+
   @Controller('User')
   export class UserController {
     constructor(private readonly UserService: UserService) {}
@@ -25,24 +30,30 @@ import {
     create(@Body() createUserDto: CreateUserDto) {
       return this.UserService.create(createUserDto);
     }
-  
-    @Get()
-    findAll() {
-      return this.UserService.findAll();
+
+    @UseGuards(AuthGuard('jwt'))
+    @Get('Email')
+    getUserByEmail(@Param() param) {
+      return this.UserService.getUserByEmail(param.Email);
     }
   
-    @Get(':id')
-    findOne(@Param('id') id: string) {
-      return this.UserService.findOne(id);
-    }
+    // @Get()
+    // findAll() {
+    //   return this.UserService.findAll();
+    // }
   
-    @Put(':id')
-    update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
-      return this.UserService.update(id, updateUserDto);
-    }
+    // @Get(':id')
+    // findOne(@Param('id') id: string) {
+    //   return this.UserService.findOne(id);
+    // }
   
-    @Delete(':id')
-    remove(@Param('id') id: string) {
-      return this.UserService.remove(id);
-    }
+    // @Put(':id')
+    // update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
+    //   return this.UserService.update(id, updateUserDto);
+    // }
+  
+    // @Delete(':id')
+    // remove(@Param('id') id: string) {
+    //   return this.UserService.remove(id);
+    // }
   }
