@@ -47,10 +47,12 @@ export class UserService {
       .exec();
   }
 
-  // async findAll(): Promise<UserDocument[]> {
-  //   return this.UserModel.find()
-  //     .exec();
-  // }
+  async findAll(): Promise<UserDocument[]> {
+    return this.UserModel.find()
+      .exec();
+  }
+
+
 
   // async findOne(id: string) {
   //   return this.UserModel.findById(id);

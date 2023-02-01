@@ -37,10 +37,17 @@ import {
       return this.UserService.getUserByEmail(param.Email);
     }
   
-    // @Get()
-    // findAll() {
-    //   return this.UserService.findAll();
-    // }
+    @UseGuards(AuthGuard('jwt'))
+    @Get('findAll')
+    findAll() {
+      return this.UserService.findAll();
+    }
+
+    @UseGuards(AuthGuard('jwt'))
+    @Get(':email')
+    findOne(@Param('email') email: string) {
+      return this.UserService.getUserByEmail(email);
+    }
   
     // @Get(':id')
     // findOne(@Param('id') id: string) {

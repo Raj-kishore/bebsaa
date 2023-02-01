@@ -32,7 +32,7 @@ import { jwtConstants } from 'src/strategy/constants';
     JwtModule.register({
       secret: jwtConstants.secret,
       signOptions: {
-        expiresIn: '60d'
+        expiresIn: '1800s'
       },
     })
   ],
