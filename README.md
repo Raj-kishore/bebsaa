@@ -2,7 +2,7 @@
 
 *Billing / Accounting System :* **(V 0.1)**
 * User Profile Management **(V0.1.1)**
-    * User Authentication
+    * User Authentication (feature/user-auth)
     * Landing page
     * User logout 
     * User settings 
