@@ -1,0 +1,11 @@
+Atri is a React Native Material component library for Bebsaa and it is opensource. Atri, the name is derived from a Hindu sage. 
+Plan is to make it an npm package before making further changes in ATRI module. 
+
+--------------
+Guide to create npm package 
+https://kps250.medium.com/publishing-react-native-modules-to-npm-40d2c4878a8e
+
+Note: Make everything in bebsaa app loosely coupled which will be better for 
+1. scaling of Bebsaa seemlesly
+2. making recurring libraries or modules opensource
+3. making money from opensource projects

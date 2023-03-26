@@ -8,7 +8,7 @@
  * @format
  */
 
-import React, { type PropsWithChildren, useState, useRef } from 'react';
+import React, { type PropsWithChildren, useState, useRef, Fragment } from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -18,6 +18,7 @@ import {
   useColorScheme,
   TouchableOpacity,
   View,
+  Button,
 } from 'react-native';
 import PhoneInput from "react-native-phone-number-input";
 
@@ -28,6 +29,8 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import AtriInput from './components/Atri/Input';
+import AtriButton from './components/Atri/Button';
 
 
 export const Splash: React.FC = () => {
@@ -85,6 +88,43 @@ export const Splash: React.FC = () => {
   );
 };
 
+export const LoginForm: React.FC = () => {
+  const [value, setValue] = useState("");
+  const [formattedValue, setFormattedValue] = useState("");
+  const [valid, setValid] = useState(false);
+  const [showMessage, setShowMessage] = useState(false);
+  const phoneInput = useRef<PhoneInput>(null);
+  return (
+    <>
+      <StatusBar barStyle="dark-content" />
+      <View style={styles.container}>
+        <SafeAreaView style={styles.wrapper}>
+          {/* {showMessage && (
+            <View style={styles.message}>
+              <Text>Value : {value}</Text>
+              <Text>Formatted Value : {formattedValue}</Text>
+              <Text>Valid : {valid ? "true" : "false"}</Text>
+            </View>
+          )} */}
+
+          <Fragment>
+            <View style={styles.message}>
+              <Text>Bebsaa</Text>
+            </View>
+
+
+            <AtriInput placeHolder="email" />
+            <AtriInput placeHolder="password" />
+            <AtriButton />
+          </Fragment>
+
+
+        </SafeAreaView>
+      </View>
+    </>
+  );
+};
+
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -106,7 +146,9 @@ const App = () => {
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
-          <Splash />
+          {/* <Splash /> */}
+
+          <LoginForm />
         </View>
       </ScrollView>
     </SafeAreaView>
