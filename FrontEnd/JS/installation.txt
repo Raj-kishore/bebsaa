@@ -1,0 +1,8 @@
+## nvm 
+
+nvm install NEW_VERSION --reinstall-packages-from=OLD_VERSION
+Example: nvm install 6.7 --reinstall-packages-from=6.4
+
+nvm list
+
+nvm use  6.7 
