@@ -1,0 +1,30 @@
+The app has two segments. 
+1. for part-time courier job
+2. for placing order
+
+
+1st segment process flow. 
+
+
+done 1. Choose location. [Mumbai, banglore, delhi, hyd, ahmedabad, chennai, kolkata, surat, pune, goa, chandigarh]
+done 2. Login/Register using phone number and otp verificaiton. 
+done 3. enter full name
+done 4. upload photo either from phone camera or from gallery. 
+5. Documents upload - Adhaar front and back side + pancard 
+6. Document verification - [wait till manual verification] 
+7. After verification send notification [success or reupload]
+8. Dashboard - Redirect user to dashboard and show list of requests. 
+9. Chose one from the list. 
+10. Each item is showing commission amount, from details and to details. 
+11. After delivery success, ask for money and surrender the item. 
+12. After delivery fail, return the item and get the payment.
+13. Now you recieve the rating for reciever and sender.  
+14. Keep a page for history of transactions. 
+15. Repeat 1-14
+
+QED
+
+Extra features
+- User profile page
+- Grievence page
+- Terms and conditions page

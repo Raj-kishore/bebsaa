@@ -33,7 +33,9 @@ import {
   RegisterScreen,
   ResetPasswordScreen,
   Dashboard,
-  LocationChooseScreen
+  LocationChooseScreen,
+  FullNameScreen,
+  UploadImageScreen,
 } from './src/screens'
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -99,6 +101,8 @@ function App(): JSX.Element {
           <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
           <Stack.Screen name="Dashboard" component={Dashboard} />
           <Stack.Screen name="LocationChooseScreen" component={LocationChooseScreen} />
+          <Stack.Screen name="FullNameScreen" component={FullNameScreen} />
+          <Stack.Screen name="UploadImageScreen" component={UploadImageScreen} />
           <Stack.Screen
             name="ResetPasswordScreen"
             component={ResetPasswordScreen}

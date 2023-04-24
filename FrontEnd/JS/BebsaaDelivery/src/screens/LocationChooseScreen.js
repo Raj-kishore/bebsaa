@@ -6,7 +6,7 @@ import Background from '../components/Background'
 
 
 
-export default function LocationChooseScreen() {
+export default function LocationChooseScreen({ navigation }) {
 
     const [value, setValue] = React.useState('4');
 
@@ -28,7 +28,12 @@ export default function LocationChooseScreen() {
                         <RadioButton.Item label="Goa" value="10" />
                         <RadioButton.Item label="Chandigarh" value="11" />
                     </RadioButton.Group>
-                    <Button mode="contained" onPress={() => console.log('Pressed')}>
+                    <Button mode="contained" onPress={() => {
+                        navigation.reset({
+                            index: 0,
+                            routes: [{ name: 'FullNameScreen' }],
+                        })
+                    }}>
                         Next
                     </Button>
                 </View>
