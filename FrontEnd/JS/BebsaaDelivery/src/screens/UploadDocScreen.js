@@ -9,12 +9,13 @@ import BackButton from '../components/BackButton'
 import NextButton from '../components/Button'
 
 
-export default function UploadImageScreen({ navigation }) {
+export default function UploadDocScreen({ navigation }) {
     const [imageUri, setImageUri] = useState(null);
     const onNextPressed = () => {
+
         navigation.reset({
             index: 0,
-            routes: [{ name: 'UploadDocScreen' }],
+            routes: [{ name: 'VerificationScreen' }],
         })
     }
     const pickImage = async () => {
@@ -39,13 +40,27 @@ export default function UploadImageScreen({ navigation }) {
         <Background>
             <BackButton goBack={navigation.goBack} />
             <Logo />
-            <Header>Upload your photo</Header>
+            <Header>Upload your documents</Header>
             <View style={styles.container}>
                 {imageUri ? (
                     <Image source={{ uri: imageUri }} style={styles.image} />
                 ) : (
                     <TouchableOpacity onPress={pickImage} style={styles.imagePlaceholder}>
-                        <Text style={styles.imagePlaceholderText}>Choose an image</Text>
+                        <Text style={styles.imagePlaceholderText}>Upload Adhaar front and back</Text>
+                    </TouchableOpacity>
+                )}
+
+                {imageUri && (
+                    <Button title="Upload" onPress={handleUpload} />
+                )}
+            </View>
+
+            <View style={styles.container}>
+                {imageUri ? (
+                    <Image source={{ uri: imageUri }} style={styles.image} />
+                ) : (
+                    <TouchableOpacity onPress={pickImage} style={styles.imagePlaceholder}>
+                        <Text style={styles.imagePlaceholderText}>Upload PAN card</Text>
                     </TouchableOpacity>
                 )}
 
@@ -54,7 +69,7 @@ export default function UploadImageScreen({ navigation }) {
                 )}
             </View>
             <NextButton mode="contained" onPress={onNextPressed}>
-                Next
+                Submit
             </NextButton>
         </Background>
     );

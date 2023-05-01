@@ -6,3 +6,5 @@ export { default as Dashboard } from './Dashboard'
 export { default as LocationChooseScreen } from './LocationChooseScreen'
 export { default as FullNameScreen } from './FullNameScreen';
 export { default as UploadImageScreen } from './UploadImageScreen';
+export { default as UploadDocScreen } from './UploadDocScreen';
+export { default as VerificationScreen } from './VerificationScreen';
