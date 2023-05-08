@@ -14,13 +14,13 @@ done 4. upload photo either from phone camera or from gallery.
 done 5. Documents upload - Adhaar front and back side + pancard 
 done 6. Document verification - [wait till manual verification] 
 hold 7. After verification send notification [success or reupload]
-8. Dashboard - Redirect user to dashboard and show list of requests. 
-9. Chose one from the list. 
-10. Each item is showing commission amount, from details and to details. 
-11. After delivery success, ask for money and surrender the item. 
-12. After delivery fail, return the item and get the payment.
-13. Now you recieve the rating for reciever and sender.  
-14. Keep a page for history of transactions. 
+done 8. Dashboard - Redirect user to dashboard and show list of requests. 
+done 9. Chose one from the list. 
+done 10. Each item is showing commission amount, from details and to details. 
+done 11. Confrim delivery success, by typing OTP from customer. After delivery success, ask for money and surrender the item. 
+hold 12. After delivery fail, return the item and get the payment. [special case... Need to develop this feature after complete app is done]
+done 13. Now you recieve the rating for reciever and sender. [to be done from customer app] 
+done 14. Keep a page for history of transactions. 
 15. Repeat 1-14
 
 QED
@@ -29,3 +29,6 @@ Extra features
 - User profile page
 - Grievence page
 - Terms and conditions page
+
+
+

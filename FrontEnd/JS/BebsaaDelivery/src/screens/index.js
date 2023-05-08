@@ -8,3 +8,6 @@ export { default as FullNameScreen } from './FullNameScreen';
 export { default as UploadImageScreen } from './UploadImageScreen';
 export { default as UploadDocScreen } from './UploadDocScreen';
 export { default as VerificationScreen } from './VerificationScreen';
+export { default as DashboardScreen } from './DashboardScreen';
+export { default as RequestScreen } from './RequestScreen';
+export { default as HistoryScreen } from './HistoryScreen';
