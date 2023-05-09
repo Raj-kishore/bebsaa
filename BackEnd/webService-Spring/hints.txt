@@ -1,0 +1,8 @@
+Setting up SSH for git 
+https://medium.com/featurepreneur/setting-up-ssh-key-with-github-for-ubuntu-cd8f2fabf25b
+
+To set ssh url 
+git remote set-url origin git@github.com:Raj-kishore/IMS-Webservices-User-Roles.git
+
+To set url with personal token 
+git remote set-url origin https://<personal_access_token>@github.com/Raj-kishore/IMS-Webservices-User-Roles.git

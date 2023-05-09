@@ -1,0 +1,6 @@
+
+PostgreSQL installation guide ubuntu.. 
+https://stackoverflow.com/questions/53267642/create-new-local-server-in-pgadmin
+
+Git access token set for linux using the below command. - Token valid for 30 days only - Jul 23 to Aug 23
+git remote set-url origin https://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@github.com/Raj-kishore/IMS-Webservices-User-Roles
