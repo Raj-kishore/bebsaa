@@ -1,7 +1,7 @@
 @ECHO OFF
 REM React native app starter commnads
 ECHO Starting Metro on a new window.
-start cmd.exe /k npx react-native start --reset-cache
+start cmd.exe /k npx react-native start -- --reset-cache
 ECHO Metro is running.
 ECHO Starting Application on a new window.
 start cmd.exe /k  npx react-native run-android
