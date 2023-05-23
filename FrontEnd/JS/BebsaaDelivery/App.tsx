@@ -5,7 +5,7 @@
  * @format
  */
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import type { PropsWithChildren } from 'react';
 import {
   Button,
@@ -19,6 +19,7 @@ import {
 } from 'react-native';
 import { MD3LightTheme as DefaultTheme, Provider as PaperProvider, RadioButton } from 'react-native-paper';
 import { theme } from './src/core/theme'
+
 
 import {
   Colors,
@@ -92,8 +93,12 @@ function App(): JSX.Element {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
+
+
+
   return (
     <PaperProvider theme={theme}>
+
       <NavigationContainer>
         <Stack.Navigator
           initialRouteName="StartScreen"
@@ -101,6 +106,7 @@ function App(): JSX.Element {
             headerShown: false,
           }}
         >
+
           <Stack.Screen name="StartScreen" component={StartScreen} />
           <Stack.Screen name="LoginScreen" component={LoginScreen} />
           <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
@@ -180,6 +186,11 @@ function App(): JSX.Element {
 // };
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
   sectionContainer: {
     marginTop: 32,
     paddingHorizontal: 24,
@@ -197,5 +208,12 @@ const styles = StyleSheet.create({
     fontWeight: '700',
   },
 });
+
+
+
+
+
+
+
 
 export default App;
