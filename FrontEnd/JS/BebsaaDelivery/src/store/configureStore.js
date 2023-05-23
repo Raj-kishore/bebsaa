@@ -5,7 +5,7 @@ import createSagaMiddleware from 'redux-saga';
 
 
 // Imports: Redux Root Reducer
-import rootReducer from '../reducers/index';
+import persistedReducer from '../reducers/index';
 
 
 // Imports: Redux Root Saga
@@ -13,16 +13,20 @@ import { rootSaga } from '../sagas/index';
 
 
 
+import { persistStore } from 'redux-persist';
 
 
 
 const configureStore = () => {
     // Middleware: Redux Saga
     const sagaMiddleware = createSagaMiddleware();
-    const store = createStore(rootReducer, applyMiddleware(
-        sagaMiddleware,
-        createLogger(),
-    ));
+    const store = createStore(
+        persistedReducer,
+        applyMiddleware(
+            sagaMiddleware,
+            createLogger(),
+        )
+    );
     // Middleware: Redux Saga
     sagaMiddleware.run(rootSaga);
     return store;
@@ -30,4 +34,10 @@ const configureStore = () => {
 
 
 
-export default configureStore;
+// export default persistStore(configureStore);
+
+export default () => {
+    let store = configureStore()
+    let persistor = persistStore(store)
+    return { store, persistor }
+}
